@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markdown-diagram-fixer"
-version = "1.0.0"
+version = "1.0.1"
 description = "A tool to automatically fix formatting and alignment issues in ASCII diagrams"
 readme = "README.md"
 requires-python = ">=3.7"
