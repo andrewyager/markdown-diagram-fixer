@@ -52,7 +52,7 @@ diagram-fixer input_diagram.txt --verbose
 
 If running directly from source without installation:
 ```bash
-python3 precision_diagram_fixer.py input_diagram.txt
+python3 src/precision_diagram_fixer.py input_diagram.txt
 ```
 
 ### Pandoc Integration
@@ -158,8 +158,8 @@ The precision diagram fixer uses a matrix-based approach:
 
 ## Files
 
-- `precision_diagram_fixer.py` - Main diagram fixing tool with robust matrix-based algorithm
-- `pandoc_preprocessor.py` - Pandoc preprocessor for automatic diagram fixing in markdown workflows
+- `src/precision_diagram_fixer.py` - Main diagram fixing tool with robust matrix-based algorithm
+- `src/pandoc_preprocessor.py` - Pandoc preprocessor for automatic diagram fixing in markdown workflows
 - `example_diagram.txt` - Sample diagram for testing
 
 ## License

@@ -10,9 +10,9 @@ Examples include including in a pandoc workflow to clean up before converting to
 
 ## Project Structure
 
-### Production Files (main directory)
-- `precision_diagram_fixer.py` - Main production tool with matrix-based algorithm
-- `pandoc_preprocessor.py` - Pandoc integration for markdown workflows
+### Production Files (src/ directory)
+- `src/precision_diagram_fixer.py` - Main production tool with matrix-based algorithm
+- `src/pandoc_preprocessor.py` - Pandoc integration for markdown workflows
 - `example_diagram.txt` - Sample diagram for testing
 - `setup.py` - Python package setup (legacy)
 - `pyproject.toml` - Modern Python package configuration
@@ -39,10 +39,10 @@ Examples include including in a pandoc workflow to clean up before converting to
 ### Development (without installation)
 ```bash
 # Test the production tool
-python3 precision_diagram_fixer.py dev-archive/test-data/extracted_doc_diagram_2.txt
+python3 src/precision_diagram_fixer.py dev-archive/test-data/extracted_doc_diagram_2.txt
 
 # Test pandoc integration
-cat dev-archive/test-data/test_quiet.md | python3 pandoc_preprocessor.py
+cat dev-archive/test-data/test_quiet.md | python3 src/pandoc_preprocessor.py
 ```
 
 ### Installation Testing

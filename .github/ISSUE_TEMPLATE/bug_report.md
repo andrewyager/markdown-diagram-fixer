@@ -12,7 +12,7 @@ A clear and concise description of what the bug is.
 
 ## To Reproduce
 Steps to reproduce the behavior:
-1. Run command: `python3 precision_diagram_fixer.py ...`
+1. Run command: `python3 src/precision_diagram_fixer.py ...`
 2. With input diagram: (attach file or paste diagram)
 3. Expected behavior: ...
 4. Actual result: ...

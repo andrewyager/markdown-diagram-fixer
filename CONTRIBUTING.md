@@ -41,13 +41,13 @@ We welcome pull requests! Here's how to get started:
 2. **Test your changes** thoroughly:
    ```bash
    # Test the main tool
-   python3 precision_diagram_fixer.py example_diagram.txt
+   python3 src/precision_diagram_fixer.py example_diagram.txt
    
    # Test pandoc integration
-   cat dev-archive/test-data/test_quiet.md | python3 pandoc_preprocessor.py
+   cat dev-archive/test-data/test_quiet.md | python3 src/pandoc_preprocessor.py
    
    # Test with complex diagrams
-   python3 precision_diagram_fixer.py dev-archive/test-data/extracted_doc_diagram_2.txt
+   python3 src/precision_diagram_fixer.py dev-archive/test-data/extracted_doc_diagram_2.txt
    ```
 3. **Add tests** for new functionality using the existing test data patterns
 4. **Update documentation** if needed (README.md, docstrings)
@@ -108,8 +108,9 @@ We welcome pull requests! Here's how to get started:
 
 ```
 markdown-diagram-fixer/
-├── precision_diagram_fixer.py    # Main tool
-├── pandoc_preprocessor.py         # Pandoc integration
+├── src/
+│   ├── precision_diagram_fixer.py    # Main tool
+│   └── pandoc_preprocessor.py         # Pandoc integration
 ├── example_diagram.txt            # Sample for testing
 ├── README.md                      # User documentation
 ├── CONTRIBUTING.md               # This file

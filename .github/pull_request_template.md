@@ -22,8 +22,8 @@ Fixes #(issue number) or Closes #(issue number)
 ## Testing
 Describe the tests you ran to verify your changes:
 
-- [ ] Tested with `precision_diagram_fixer.py` on various diagrams
-- [ ] Tested pandoc integration with `pandoc_preprocessor.py`
+- [ ] Tested with `src/precision_diagram_fixer.py` on various diagrams
+- [ ] Tested pandoc integration with `src/pandoc_preprocessor.py`
 - [ ] Tested edge cases and error conditions
 - [ ] Verified no regression on existing test cases
 

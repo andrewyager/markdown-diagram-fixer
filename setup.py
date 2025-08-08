@@ -3,12 +3,13 @@
 Setup script for markdown-diagram-fixer
 """
 
-from setuptools import setup, find_packages
 from pathlib import Path
+
+from setuptools import find_packages, setup
 
 # Read the README file for the long description
 this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text(encoding='utf-8')
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="markdown-diagram-fixer",
@@ -19,11 +20,8 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/andrewyager/markdown-diagram-fixer",
-    packages=find_packages(),
-    py_modules=[
-        "precision_diagram_fixer",
-        "pandoc_preprocessor"
-    ],
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
