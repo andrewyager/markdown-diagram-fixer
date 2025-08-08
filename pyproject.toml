@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markdown-diagram-fixer"
+version = "1.0.0"
+description = "A tool to automatically fix formatting and alignment issues in ASCII diagrams"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Andrew Yager", email = "andrew@realworldtech.com.au"}
+]
+maintainers = [
+    {name = "Andrew Yager", email = "andrew@realworldtech.com.au"}
+]
+keywords = ["diagram", "ascii", "markdown", "pandoc", "formatting", "alignment"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/andrewyager/markdown-diagram-fixer"
+"Bug Reports" = "https://github.com/andrewyager/markdown-diagram-fixer/issues"
+"Source" = "https://github.com/andrewyager/markdown-diagram-fixer"
+"Documentation" = "https://github.com/andrewyager/markdown-diagram-fixer#readme"
+
+[project.scripts]
+diagram-fixer = "precision_diagram_fixer:main"
+pandoc-diagram-fixer = "pandoc_preprocessor:main"
