@@ -13,7 +13,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="markdown-diagram-fixer",
-    version="1.0.1",
+    version="1.1.0",
     author="Andrew Yager",
     author_email="andrew@realworldtech.com.au",
     description="A tool to automatically fix formatting and alignment issues in ASCII diagrams",
