@@ -179,4 +179,4 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 ## Security
 
-If you discover a security vulnerability, please report it privately through GitHub Security Advisories or email security@realworldtech.com.au. See [SECURITY.md](SECURITY.md) for details.
+If you discover a security vulnerability, please report it privately through GitHub Security Advisories. See [SECURITY.md](SECURITY.md) for details.
