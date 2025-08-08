@@ -450,6 +450,12 @@ class PrecisionDiagramFixer:
             # 2. Detect connection lines from unsolved positions
             connection_lines = self.detect_connections_with_matrix(lines)
 
+            if self.debug:
+                print(f"DETECTED CONNECTIONS ({len(connection_lines)} total):")
+                for i, conn in enumerate(connection_lines):
+                    print(f"  Connection {i+1}: {conn}")
+                print()
+
             # 3. Analyze problems
             box_problems = self.analyze_box_problems(lines, boxes)
             connection_problems = self.analyze_connection_problems(
@@ -518,16 +524,22 @@ class PrecisionDiagramFixer:
                     for col in range(left_col, right_col + 1):
                         if col < len(self.solved[row]):
                             self.solved[row][col] = True
-                        # Look for misplaced border characters nearby
-                        for check_col in range(
-                            max(0, col - 3), min(len(line), col + 4)
-                        ):
-                            if (
-                                check_col < len(self.solved[row])
-                                and not self.solved[row][check_col]
-                                and line[check_col] in "┌┐└┘─"
-                            ):
-                                self.solved[row][check_col] = True
+                        # Look for misplaced border characters nearby - search outward from expected position
+                        start_col = min(col, len(line) - 1) if len(line) > 0 else col
+                        for offset in range(11):  # 0 to 10
+                            found = False
+                            for direction in [0] if offset == 0 else [-offset, offset]:
+                                check_col = start_col + direction
+                                if (
+                                    0 <= check_col < len(line)
+                                    and check_col < len(self.solved[row])
+                                    and not self.solved[row][check_col]
+                                    and line[check_col] in "┌┐└┘─"
+                                ):
+                                    self.solved[row][check_col] = True
+                                    found = True
+                            if found:
+                                break
 
             # Left and right borders
             for col in [left_col, right_col]:
@@ -538,7 +550,7 @@ class PrecisionDiagramFixer:
                             self.solved[row][col] = True
                         # Look for misplaced border characters nearby
                         for check_col in range(
-                            max(0, col - 3), min(len(line), col + 4)
+                            max(0, col - 10), min(len(line), col + 11)
                         ):
                             if (
                                 check_col < len(self.solved[row])
@@ -599,6 +611,12 @@ class PrecisionDiagramFixer:
 
         # Group into connection lines
         used_pipes = set()
+
+        if self.debug:
+            print(f"FOUND UNSOLVED PIPES ({len(unsolved_pipes)} total):")
+            for row, col in unsolved_pipes:
+                print(f"  Pipe at row {row}, col {col}")
+            print()
 
         for row, col in unsolved_pipes:
             if (row, col) in used_pipes:
