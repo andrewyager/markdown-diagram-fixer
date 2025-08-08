@@ -20,7 +20,7 @@ Instead, please report them privately using one of these methods:
 
 1. **GitHub Security Advisories** (recommended): Use GitHub's private vulnerability reporting feature by going to the Security tab of this repository and clicking "Report a vulnerability"
 
-2. **Email**: Send an email to security@realworldtech.com.au with the subject line "Security Vulnerability in markdown-diagram-fixer"
+2. **Email**: Contact the project maintainer directly through GitHub
 
 ### What to Include
 
@@ -77,7 +77,6 @@ Security updates will be:
 ## Contact
 
 For security-related questions or concerns, please contact:
-- Security Team: security@realworldtech.com.au  
 - Project Maintainer: [@andrewyager](https://github.com/andrewyager)
 
 ---
