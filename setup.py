@@ -48,6 +48,7 @@ setup(
         "console_scripts": [
             "diagram-fixer=precision_diagram_fixer:main",
             "pandoc-diagram-fixer=pandoc_preprocessor:main",
+            "pandoc-diagram-filter=pandoc_preprocessor:filter_main",
         ],
     },
     include_package_data=True,

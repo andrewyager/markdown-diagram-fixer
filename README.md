@@ -57,20 +57,68 @@ python3 precision_diagram_fixer.py input_diagram.txt
 
 ### Pandoc Integration
 
-Use the `pandoc-diagram-fixer` command for pandoc integration:
+The diagram fixer can be used as a pandoc filter to automatically fix diagrams during document processing.
 
-```bash
-# After installation via pip
-pandoc --filter pandoc-diagram-fixer input.md -o output.pdf
+#### Installation for Pandoc
 
-# Quiet mode (suppresses stderr messages)
-DIAGRAM_FIXER_QUIET=1 pandoc --filter pandoc-diagram-fixer input.md -o output.pdf
+After installing the package (`pip install markdown-diagram-fixer`), add the filter to your pandoc workflow:
 
-# If running directly from source
-pandoc --filter ./pandoc_preprocessor.py input.md -o output.pdf
+**Option 1: Use in pandoc defaults file** (recommended)
+
+Add to your pandoc defaults file (e.g., `~/.pandoc/defaults/pdf.yaml`):
+```yaml
+filters:
+  - pandoc-diagram-filter
 ```
 
-The preprocessor automatically detects ASCII diagrams in markdown code blocks and fixes their formatting before pandoc processes the document.
+**Option 2: Use direct path to installed binary**
+
+If the above doesn't work due to PATH issues, use the full path:
+```yaml
+filters:
+  - /opt/homebrew/bin/pandoc-diagram-filter  # On macOS with Homebrew
+  # or find the path with: which pandoc-diagram-filter
+```
+
+**Option 3: Use with individual pandoc commands**
+```bash
+# Using pandoc defaults
+pandoc -d pdf input.md -o output.pdf
+
+# Or specify filter directly
+pandoc --filter pandoc-diagram-filter input.md -o output.pdf
+```
+
+#### Troubleshooting Pandoc Integration
+
+If the filter doesn't work:
+
+1. **Check installation**: Verify the console script exists:
+   ```bash
+   which pandoc-diagram-filter
+   ```
+
+2. **Test the filter directly**: 
+   ```bash
+   echo '```
+   ┌─────┐
+   │ Box │
+   └─────┘
+   ```' | pandoc -f gfm -t json | pandoc-diagram-filter | pandoc -f json -t markdown
+   ```
+
+3. **Use full path if needed**: In your pandoc defaults, use the full path from `which pandoc-diagram-filter`
+
+See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed troubleshooting help.
+
+#### Command Line Integration
+
+You can also use the preprocessor directly:
+
+```bash
+# Preprocess markdown then pass to pandoc
+pandoc-diagram-fixer < input.md | pandoc -o output.pdf
+```
 
 ## How It Works
 
